@@ -1,25 +1,132 @@
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 110px;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+body {
+  background: url('../images/david-straight-341873-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
 }
 
-#close-button {
- align-self: right;
+.container-fluid {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1));
+  height: 100vh;
+  padding-top: 100px;
 }
 
 .jumbotron {
+  background: black;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  height: 100px;
+  padding-top: 15px;
 }
 
-#open-nav {
-  padding: 5px 20px 20px 20px;
+#jumbo-text {
+  font-weight: 600;
+  font-size: 700%;
+  -moz-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  -moz-text-stroke-color: red;
+  -webkit-text-stroke-color: red;
+  -moz-text-stroke-width: 5px;
+  -webkit-text-stroke-width: 5px;
+  text-shadow:
+    0 0  40px #ff00007a, 
+    0 0  55px #ff00007a, 
+    0 0  70px #ff00007a, 
+    0 0  90px #ff00007a, 
+    0 0  120px #ff00007a
+}
+
+.card {
+  border: black;
+}
+
+.card-header {
+  background: rgb(31, 29, 29);
+  color: red;
+}
+
+.card-text {
+  background: black;
+  color: white;
+}
+#uberX-time {
+  font-size: 25px;
+  color: white;
+}
+
+#uberXL-time {
+  font-size: 25px;
+  color: white;
+}
+
+#uberX-price {
+  font-size: 25px;
+  color: white;
+}
+
+#uberXL-price {
+  font-size: 25px;
+  color: white;
+}
+
+.hidden{
+  display: none;
+}
+
+
+.logo {
+  text-align: center;
+  width: 65%;
+  height: 100px;
+  font-family: 'Dancing Script', cursive;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.logo b {
+  font: 15vh 'Dancing Script';
+  font-weight: 600;
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+}
+
+.logo b span {
+  animation: blink linear infinite 2s;
+}
+
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  79% {
+    color: #333;
+  }
+  80% {
+    text-shadow: none;
+  }
+  81% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+  83% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  92% {
+    color: #333;
+    text-shadow: none;
+  }
+  92.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
 }
