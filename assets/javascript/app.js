@@ -40,6 +40,11 @@ var price;
 
 // getLocation();
 
+function initAddr() {
+  var autoAdr = document.getElementById('address-input');
+  var autocomplete = new google.maps.places.Autocomplete(autoAdr);
+};
+
 $("#search-button").on("click", function (event) {
   // event.preventDefault() prevents the form from trying to submit itself.
   // We're using a form so that the user can hit enter instead of clicking the button if they want
@@ -191,14 +196,19 @@ function getUberTime() {
       console.log(res);
       var timeResultsX = res.times[1].estimate;
       var timeResultsXL = res.times[2].estimate;
+      var timeResultsBlack = res.times[4].estimate;
       console.log(timeResultsX);
       console.log(timeResultsXL);
+      console.log(timeResultsBlack);
       var uberXTime = timeResultsX / 60;
       var uberXLTime = timeResultsXL / 60;
-      var uberTimeTextX = "uberX: " + uberXTime + " minutes";
-      var uberTimeTextXL = "uberXL: " + uberXLTime + " minutes";
+      var uberBlackTime = timeResultsBlack / 60;
+      var uberTimeTextX = uberXTime + " min wait";
+      var uberTimeTextXL = uberXLTime + " min wait";
+      var uberTimeTextBlack = uberBlackTime + " min wait";
       $("#uberX-time").text(uberTimeTextX);
       $("#uberXL-time").text(uberTimeTextXL);
+      $("#uberBlack-time").text(uberTimeTextBlack);
     })
     .catch(function (err) {
       console.log(err);
@@ -233,14 +243,13 @@ function getUberPrice() {
       console.log(res);
       var priceResultsX = res.prices[1].estimate;
       var priceResultsXL = res.prices[2].estimate;
+      var priceResultsBlack = res.prices[4].estimate;
       console.log(priceResultsX);
       console.log(priceResultsXL);
-      var uberXPrice = priceResultsX;
-      var uberXLPrice = priceResultsXL;
-      var uberPriceTextX = "uberX price: " + uberXPrice;
-      var uberPriceTextXL = "uberXL price: " + uberXLPrice;
-      $("#uberX-price").text(uberPriceTextX);
-      $("#uberXL-price").text(uberPriceTextXL);
+      console.log(priceResultsBlack);
+      $("#uberX-price").text(priceResultsX);
+      $("#uberXL-price").text(priceResultsXL);
+      $("#uberBlack-price").text(priceResultsBlack);
     })
     .catch(function (err) {
       console.log(err);

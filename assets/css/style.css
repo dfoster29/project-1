@@ -45,9 +45,11 @@ body {
 #uberXL-time,
 #uberXL-price,
 #uberX-price,
+#uberBlack-time,
+#uberBlack-price,
 #google-distance,
 #google-time {
-  font-size: 25px;
+
   color: white;
 }
 
