@@ -1,5 +1,5 @@
 body {
-  background: url('../images/david-straight-341873-unsplash.jpg');
+  background: url("../images/david-straight-341873-unsplash.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -18,23 +18,8 @@ body {
   margin-bottom: 0;
   height: 100px;
   padding-top: 15px;
-}
-
-#jumbo-text {
-  font-weight: 600;
-  font-size: 700%;
-  -moz-text-fill-color: transparent;
-  -webkit-text-fill-color: transparent;
-  -moz-text-stroke-color: red;
-  -webkit-text-stroke-color: red;
-  -moz-text-stroke-width: 5px;
-  -webkit-text-stroke-width: 5px;
-  text-shadow:
-    0 0  40px #ff00007a, 
-    0 0  55px #ff00007a, 
-    0 0  70px #ff00007a, 
-    0 0  90px #ff00007a, 
-    0 0  120px #ff00007a
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .card {
@@ -50,36 +35,25 @@ body {
   background: black;
   color: white;
 }
-#uberX-time {
+
+#uberX-time,
+#uberXL-time,
+#uberXL-price,
+#uberX-price,
+#google-distance,
+#google-time {
   font-size: 25px;
   color: white;
 }
 
-#uberXL-time {
-  font-size: 25px;
-  color: white;
-}
-
-#uberX-price {
-  font-size: 25px;
-  color: white;
-}
-
-#uberXL-price {
-  font-size: 25px;
-  color: white;
-}
-
-.hidden{
+.hidden {
   display: none;
 }
 
-
 .logo {
   text-align: center;
-  width: 65%;
   height: 100px;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   margin: auto;
   top: 0;
   left: 0;
@@ -88,10 +62,11 @@ body {
 }
 
 .logo b {
-  font: 15vh 'Dancing Script';
+  font: 150px "Dancing Script";
   font-weight: 600;
   color: #fee;
-  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444,
+    0 0 0.1em #ff4444, 0 10px 3px #000;
 }
 
 .logo b span {
@@ -128,5 +103,17 @@ body {
   92.5% {
     color: inherit;
     text-shadow: inherit;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .logo b {
+    font: 100px "Dancing Script";
+    font-weight: 600;
+    color: #fee;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444,
+      0 0 0.1em #ff4444, 0 10px 3px #000;
+    text-align: center;
+    padding-left: none;
   }
 }

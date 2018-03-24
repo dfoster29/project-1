@@ -16,12 +16,14 @@
   <div class="jumbotron">
     <div class="logo">
       <b>
-        D<span>ri</span>ve<span>B</span>ar
+        D<span>ri</span>ve
+        <span>B</span>ar
       </b>
     </div>
   </div>
 
   <div class="container-fluid">
+
 
     <div class="form-stuff text-center">
       <div class="row" id="search-form">
@@ -33,45 +35,55 @@
       </div>
     </div>
 
-    <div class="row hidden" id="show-this">
-      <div class="col-md-6">
-        <div class="card mt-4 ml-2" id="destination-card">
-          <div class="card-header">
-            <h2>destinations</h2>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card rounded mt-4 ml-2 hidden" id="bar-info">
+          <div class="card-header text-center">
+            <h1 id="bar-name"></h1>
           </div>
           <div class="card-text py-3">
+
+            <img id="bar-photo">
+
+            </img>
+
             <div class="row">
-              <div class="col-md-6 text-left" id="results"></div>
+              <div class="col-md-4">
+                <div class="text-center" id="uberX-time"></div>
+                <div class="text-center" id="uberXL-time"></div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="text-center" id="uberX-price"></div>
+                <div class="text-center" id="uberXL-price"></div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="text-center" id="google-distance"></div>
+                <div class="text-center" id="google-time"></div>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="card mt-4 mr-2" id="uber-price-card">
+
+      <div class="col-md-4 hidden" id="show-this">
+        <div class="card rounded mt-4 ml-2" id="destination-card">
           <div class="card-header text-center">
-            <h3>uber price</h3>
+            <h2>destinations</h2>
           </div>
           <div class="card-text py-3">
-            <div class="col-md-12 text-center" id="uberX-price"></div>
-            <div class="col-md-12 text-center" id="uberXL-price"></div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-3">
-        <div class="card mt-4 mr-2" id="uber-time-card">
-          <div class="card-header text-center">
-            <h3>uber wait time</h3>
-          </div>
-          <div class="card-text py-3">
-            <div class="col-md-12 text-center" id="uberX-time"></div>
-            <div class="col-md-12 text-center" id="uberXL-time"></div>
+            <div class="row">
+              <div class="col-md-12" id="results"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
 
   </div>
 
