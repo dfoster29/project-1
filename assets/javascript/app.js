@@ -14,7 +14,7 @@ var queryURLthree;
 var queryURLfive;
 var startAddressArray;
 var endAddressArray;
-
+var rating;
 var results;
 
 var originGDM;
@@ -95,13 +95,15 @@ function searchStuff() {
     }
 
     for (var i = 0; i < searchResults.length; i++) {
+      var resultDivRow = $("<div class='row'>");
       var resultDiv = $("<div class='result'></div>");
-      resultDiv.addClass("col-md-12 text-center py-1");
+      resultDiv.addClass("col-md-10 text-left py-1");
       resultDiv.attr("id", searchResults[i].id);
       resultDiv.attr("latitude", searchResults[i].geometry.location.lat);
       resultDiv.attr("longitude", searchResults[i].geometry.location.lng);
       resultDiv.attr("destination", searchResults[i].formatted_address);
       resultDiv.attr("name", searchResults[i].name);
+      resultDiv.attr("rating", rating);
       var searchItem = $("<h4>");
       searchItem.text(searchResults[i].name);
       resultDiv.append(searchItem);
