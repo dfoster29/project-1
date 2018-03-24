@@ -8,7 +8,7 @@ body {
 
 .container-fluid {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1));
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 100px;
 }
 
@@ -33,6 +33,11 @@ body {
 
 .card-text {
   background: black;
+  color: white;
+}
+
+.rating-info {
+  font-size: 25px;
   color: white;
 }
 

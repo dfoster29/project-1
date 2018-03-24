@@ -24,6 +24,7 @@ var startFormatAddress;
 var placeName;
 
 var queryURLsix;
+var price;
 
 // function getLocation() {
 //     if (navigator.geolocation) {
@@ -95,19 +96,30 @@ function searchStuff() {
     }
 
     for (var i = 0; i < searchResults.length; i++) {
-      var resultDivRow = $("<div class='row'>");
-      var resultDiv = $("<div class='result'></div>");
-      resultDiv.addClass("col-md-10 text-left py-1");
-      resultDiv.attr("id", searchResults[i].id);
-      resultDiv.attr("latitude", searchResults[i].geometry.location.lat);
-      resultDiv.attr("longitude", searchResults[i].geometry.location.lng);
-      resultDiv.attr("destination", searchResults[i].formatted_address);
-      resultDiv.attr("name", searchResults[i].name);
-      resultDiv.attr("rating", rating);
+
+      // create row
+      var resultDivRow = $("<div class='row result py-1'>");
+      resultDivRow.attr("rating", searchResults[i].rating);
+      resultDivRow.attr("id", searchResults[i].id);
+      resultDivRow.attr("latitude", searchResults[i].geometry.location.lat);
+      resultDivRow.attr("longitude", searchResults[i].geometry.location.lng);
+      resultDivRow.attr("destination", searchResults[i].formatted_address);
+      resultDivRow.attr("name", searchResults[i].name);
+
+      // create left hand column div for name of bar
+      var resultDiv = $("<div class='col-md-8'>");
       var searchItem = $("<h4>");
       searchItem.text(searchResults[i].name);
       resultDiv.append(searchItem);
-      $("#results").append(resultDiv);
+      resultDivRow.append(resultDiv);
+
+      // create right hand column div for rating of bar
+      var resultDivRating = $("<div class='col-md-4 rating-info text-right'>");
+      resultDivRating.html("&#x2606; " + searchResults[i].rating);
+      resultDivRow.append(resultDivRating);
+
+      // append whole row to DOM
+      $("#results").append(resultDivRow);
     }
   });
 }
@@ -267,6 +279,7 @@ function googleDistance() {
 function printName() {
   var thisObject = this;
   placeName = $(this).attr("name");
+  price = $(this).attr("price");
   $("#bar-info").removeClass("hidden");
   $("#bar-name").text(placeName);
 };
