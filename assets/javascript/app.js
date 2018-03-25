@@ -49,6 +49,7 @@ $("#search-button").on("click", function (event) {
   // event.preventDefault() prevents the form from trying to submit itself.
   // We're using a form so that the user can hit enter instead of clicking the button if they want
   event.preventDefault();
+  $("#results").empty();
 
   if ($("#address-input").val() !== "") {
     // This line will grab the text from the input box
@@ -86,7 +87,7 @@ function searchStuff() {
   queryURLtwo =
     "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" +
     destinationArray +
-    "&key=AIzaSyCk-KNk6jGlajiWKSm2CwMv5QUq8e7a01Q";
+    "+bar&key=AIzaSyCk-KNk6jGlajiWKSm2CwMv5QUq8e7a01Q";
   console.log(destinationArray);
 
   $.ajax({
