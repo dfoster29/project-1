@@ -75,14 +75,19 @@ $("#search-button").on("click", function (event) {
   console.log(startAddress);
   getStartAddress();
   searchStuff();
+  printAddresses();
 });
+
+function printAddresses() {
+  $("#start-address").text(startAddress);
+};
 
 function searchStuff() {
   queryURLtwo =
     "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" +
     destinationArray +
-    "&key=AIzaSyBf7PWp5QlvGwec0U64-7QpxiedRnAGvhc";
-  console.log();
+    "&key=AIzaSyCk-KNk6jGlajiWKSm2CwMv5QUq8e7a01Q";
+  console.log(destinationArray);
 
   $.ajax({
     url: queryURLtwo,
@@ -103,7 +108,7 @@ function searchStuff() {
     for (var i = 0; i < searchResults.length; i++) {
 
       // create row
-      var resultDivRow = $("<div class='row result py-1'>");
+      var resultDivRow = $("<button class='row btn-lg btn-danger w-100 text-center result m-1 my-2 p-1'>");
       resultDivRow.attr("rating", searchResults[i].rating);
       resultDivRow.attr("id", searchResults[i].id);
       resultDivRow.attr("latitude", searchResults[i].geometry.location.lat);
@@ -112,7 +117,7 @@ function searchStuff() {
       resultDivRow.attr("name", searchResults[i].name);
 
       // create left hand column div for name of bar
-      var resultDiv = $("<div class='col-md-8'>");
+      var resultDiv = $("<div class='col-md-8 text-left'>");
       var searchItem = $("<h4>");
       searchItem.text(searchResults[i].name);
       resultDiv.append(searchItem);
@@ -133,7 +138,7 @@ function getStartAddress() {
   queryURLtwo =
     "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" +
     startAddressArray +
-    "&key=AIzaSyBf7PWp5QlvGwec0U64-7QpxiedRnAGvhc";
+    "&key=AIzaSyCk-KNk6jGlajiWKSm2CwMv5QUq8e7a01Q";
 
   $.ajax({
     url: queryURLtwo,
@@ -257,7 +262,7 @@ function getUberPrice() {
 };
 
 $("button").click(function () {
-  $("#show-this").removeClass("hidden");
+  $(".show-this").removeClass("hidden");
 });
 
 function googleDistance() {
@@ -280,8 +285,8 @@ function googleDistance() {
     var distance_text = distance.text;
     var duration = response.rows[0].elements[0].duration.text;
     var miles = distance_text.substring(0, distance_text.length - 3);
-    $("#google-distance").text(distance_text);
-    $("#google-time").text(duration);
+    $("#google-distance").text("distance: " + distance_text);
+    $("#google-time").text("drive time: " + duration);
   });
 };
 
@@ -289,8 +294,12 @@ function printName() {
   var thisObject = this;
   placeName = $(this).attr("name");
   price = $(this).attr("price");
+  address = $(this).attr("destination");
   $("#bar-info").removeClass("hidden");
+  $("#end-address").removeClass("hidden");
+  $("#bar-card").removeClass("hidden");
   $("#bar-name").text(placeName);
+  $("#end-address").text(address);
 };
 
 

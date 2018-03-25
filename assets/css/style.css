@@ -22,29 +22,18 @@ body {
   padding-right: 0px;
 }
 
-.card {
-  border: black;
-}
-
-.card-header {
-  background: rgb(31, 29, 29);
-  color: red;
-}
-
-.card-text {
-  background: black;
-  color: white;
-}
-
 .rating-info {
   font-size: 25px;
   color: white;
 }
 
 #uberX-time,
+#uberX-price {
+  color: black;
+}
+
 #uberXL-time,
 #uberXL-price,
-#uberX-price,
 #uberBlack-time,
 #uberBlack-price,
 #google-distance,
