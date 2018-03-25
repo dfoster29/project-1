@@ -109,7 +109,7 @@ function searchStuff() {
     for (var i = 0; i < searchResults.length; i++) {
 
       // create row
-      var resultDivRow = $("<button class='row btn-lg btn-danger w-100 text-center result m-1 my-2 p-1'>");
+      var resultDivRow = $("<button class='row btn-lg btn-danger w-100 text-center result mb-2 mx-1 p-1'>");
       resultDivRow.attr("rating", searchResults[i].rating);
       resultDivRow.attr("id", searchResults[i].id);
       resultDivRow.attr("latitude", searchResults[i].geometry.location.lat);
