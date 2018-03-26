@@ -32,10 +32,11 @@
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-4 ml-3 mb-0">
-        <h4>where's the uber gettin ya?</h4>
+        <h4>where's the uber picking you up from?</h4>
       </div>
       <div class="col-md-4 ml-3 mb-0">
-        <h4>what town ya looking for bars in?</h4></div>
+        <h4>what town are you looking for bars in?</h4>
+      </div>
     </div>
 
 
@@ -45,7 +46,7 @@
       <div class="row" id="search-form">
         <label for="search-input"></label>
         <div class="col-md-1 m-2"></div>
-        <input class="col-md-4 btn-lg m-2" placeholder="enter start address..." type="text" id="address-input">
+        <input class="col-md-4 btn-lg m-2" placeholder="enter address..." type="text" id="address-input">
         <input class="col-md-4 btn-lg m-2" placeholder="enter zip code or city, state..." type="text" id="destination-input">
         <button class="col-md-1 btn-lg btn-danger m-2" id="search-button" type="submit" value="">search</button>
       </div>
@@ -104,28 +105,35 @@
           <!-- // uber row in column #2 --------------------------------------- -->
 
           <div class="row">
+
             <div class="col-md-4">
-              <button class="mt-3 text-center btn btn-light w-100">
-                <div>uberX</div>
-                <div class="text-center" id="uberX-time"></div>
-                <div class="text-center" id="uberX-price"></div>
-              </button>
+              <div class="card bg-light mb-3">
+                <div class="card-header text-center">uberX</div>
+                <div class="card-body">
+                  <div class="text-center" id="uberX-time"></div>
+                  <div class="text-center" id="uberX-price"></div>
+                </div>
+              </div>
             </div>
 
             <div class="col-md-4">
-              <button class="mt-3 text-center btn btn-secondary w-100">
-                <div>uberXL</div>
-                <div class="text-center" id="uberXL-time"></div>
-                <div class="text-center" id="uberXL-price"></div>
-              </button>
+              <div class="card text-white bg-secondary mb-3">
+                <div class="card-header text-center">uberXL</div>
+                <div class="card-body">
+                  <div class="text-center text-white" id="uberXL-time"></div>
+                  <div class="text-center text-white" id="uberXL-price"></div>
+                </div>
+              </div>
             </div>
 
             <div class="col-md-4">
-              <button class="mt-3 text-center btn btn-dark w-100">
-                <div>uberBlack</div>
-                <div class="text-center" id="uberBlack-time"></div>
-                <div class="text-center" id="uberBlack-price"></div>
-              </button>
+              <div class="card text-white bg-dark mb-3">
+                <div class="card-header text-center">uberBlack</div>
+                <div class="card-body">
+                  <div class="text-center text-white" id="uberBlack-time"></div>
+                  <div class="text-center text-white" id="uberBlack-price"></div>
+                </div>
+              </div>
             </div>
 
           </div>
