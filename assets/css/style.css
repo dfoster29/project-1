@@ -32,6 +32,10 @@ body {
   color: black;
 }
 
+h4 {
+  color: white;
+}
+
 #uberXL-time,
 #uberXL-price,
 #uberBlack-time,
