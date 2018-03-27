@@ -110,7 +110,7 @@ function searchStuff() {
       for (var i = 0; i < searchResults.length; i++) {
 
         // create row
-        var resultDivRow = $("<button class='row btn-lg w-100 text-center bg-danger result mb-2 p-1'>");
+        var resultDivRow = $("<button class='row btn-lg w-100 text-center bg-danger result mb-2 ml-1 p-1'>");
 
         resultDivRow.attr("rating", searchResults[i].rating);
         resultDivRow.attr("id", searchResults[i].id);
@@ -118,20 +118,25 @@ function searchStuff() {
         resultDivRow.attr("longitude", searchResults[i].geometry.location.lng);
         resultDivRow.attr("destination", searchResults[i].formatted_address);
         resultDivRow.attr("name", searchResults[i].name);
-  
+
         // create left hand column div for name of bar
         var resultDiv = $("<div class='col-md-8 text-left'>");
         var searchItem = $("<h4>");
         searchItem.text(searchResults[i].name);
         resultDiv.append(searchItem);
         resultDivRow.append(resultDiv);
-  
+
         // create right hand column div for rating of bar
         var resultDivRating = $("<div class='col-md-4 rating-info text-right'>");
-        resultDivRating.html("&#x2606; " + searchResults[i].rating);
+
+        if (searchResults[i].rating != undefined) {
+          resultDivRating.html("&#x2606; " + searchResults[i].rating);
+        } else {
+          resultDivRating.html(" ")
+        }
         resultDivRow.append(resultDivRating);
         $("#no-results").empty();
-  
+
         // append whole row to DOM
         $("#results").append(resultDivRow);
       }
@@ -339,4 +344,3 @@ function googlePhoto() {
 // google places api key for danieljfoster87@gmail.com AIzaSyCk-KNk6jGlajiWKSm2CwMv5QUq8e7a01Q  over query limit Monday 9pm
 // AIzaSyD4VXFiAwwWf5h8cp27q1wlOhOEu6eOHPI
 // google street view api key AIzaSyAhLZTKkeTNine_zc-t6Mqj_rVwCQnHrKQ
-
