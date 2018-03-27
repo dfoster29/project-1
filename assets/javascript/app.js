@@ -73,7 +73,7 @@ $("#search-button").on("click", function (event) {
     console.log(destinationArray);
   }
 
-  console.log(startAddress);
+
   getStartAddress();
   searchStuff();
   printAddresses();
@@ -110,7 +110,8 @@ function searchStuff() {
       for (var i = 0; i < searchResults.length; i++) {
 
         // create row
-        var resultDivRow = $("<button class='row btn-lg btn-primary w-100 text-center result mb-2 ml-1 p-1'>");
+        var resultDivRow = $("<button class='row btn-lg w-100 text-center bg-danger result mb-2 p-1'>");
+
         resultDivRow.attr("rating", searchResults[i].rating);
         resultDivRow.attr("id", searchResults[i].id);
         resultDivRow.attr("latitude", searchResults[i].geometry.location.lat);
@@ -135,7 +136,7 @@ function searchStuff() {
         $("#results").append(resultDivRow);
       }
     } else {
-      $("#no-results").html("<button class='row btn-lg btn-danger w-100 text-center result mb-2 ml-1 px-5 p-3'>There are no bars in the town you searched. Please search again.</button>")
+      $("#no-results").html("<button class='row btn-lg w-100 text-center error-button disabled result mb-2 ml-1 px-5 p-3'>There are no bars in the town you searched. Please search again.</button>")
     }
   });
 }
@@ -267,9 +268,9 @@ function getUberPrice() {
     })
     .catch(function (err) {
       console.log(err);
-      $("#uberX-time").text("There are currently no available uberX in this area.");
-      $("#uberXL-time").text("There are currently no available uberXL in this area.");
-      $("#uberBlack-time").text("There are currently no available uberBlack in this area.");
+      $("#uberX-time").text("There are currently no available uberX for this desired origin and destination.");
+      $("#uberXL-time").text("There are currently no available uberXL for this desired origin and destination.");
+      $("#uberBlack-time").text("There are currently no available uberBlack for this desired origin and destination.");
     });
 };
 

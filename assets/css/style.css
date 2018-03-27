@@ -28,7 +28,6 @@ body {
   color: white;
 }
 
-
 #uberX-time,
 #uberX-price {
   color: black;
@@ -40,6 +39,19 @@ body {
 
 h4 {
   color: white;
+}
+
+#bar-card {
+  background-color: black;
+}
+
+.error-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.result {
+border: none;
 }
 
 #uberXL-time,
@@ -125,3 +137,35 @@ h4 {
   }
 }
 
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.result {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-name: slideInFromLeft;
+}
+.card {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-name: slideInFromBottom;
+}

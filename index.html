@@ -56,10 +56,11 @@
 
       <!-- // column 1 ---------------------------------------------- -->
 
-      <div class="col-md-4">
-        <div class="card bg-dark hidden" id="bar-card">
+      <div class="col-md-4 col-12">
+        <div class="card hidden" id="bar-card">
           <div class="card-body">
             <h1 class="card-title text-white text-center" id="bar-name"></h1>
+            <div class="m-3 text-white text-center" id="end-address"></div>
             <img class="card-img-bottom img-fluid" id="bar-photo">
           </div>
         </div>
@@ -67,7 +68,7 @@
 
       <!-- // column 2 ---------------------------------------------- -->
 
-      <div class="col-md-4">
+      <div class="col-md-4 col-12">
 
         <div class="card-column hidden" id="bar-info">
 
@@ -118,9 +119,9 @@
 
             <div class="row">
               <div class="col-md-12 px-0 mx-0">
-                <div class="card text-white bg-primary mb-3">
+                <div class="card text-white mb-3">
                   <div class="card-header bg-dark">drive info</div>
-                  <div class="card-body">
+                  <div class="card-body bg-primary">
                     <div id="google-distance"></div>
                     <div id="google-time"></div>
                   </div>
@@ -132,28 +133,14 @@
 
             <div class="row">
               <div class="col-md-12 px-0 mx-0">
-                <div class="card text-white bg-success mb-3">
-                  <div class="card-header bg-dark">start address</div>
-                  <div class="card-body">
+                <div class="card text-white mb-3">
+                  <div class="card-header bg-dark">the uber is picking you up here</div>
+                  <div class="card-body bg-success">
                     <div id="start-address"></div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- // bar address row in column #2 ------------------------------- -->
-
-            <div class="row">
-              <div class="col-md-12 px-0 mx-0">
-                <div class="card text-white bg-danger mb-3">
-                  <div class="card-header bg-dark">bar address</div>
-                  <div class="card-body">
-                    <div id="end-address"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
 
           </div>
         </div>
@@ -161,7 +148,7 @@
 
       <!-- // column 3 ---------------------------------------------------- -->
 
-      <div class="col-md-4 hidden show-this">
+      <div class="col-md-4 col-12 hidden show-this">
         <div class="text-center" id=no-results></div>
 
         <div class="text-center" id="results"></div>
