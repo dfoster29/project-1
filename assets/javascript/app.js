@@ -87,7 +87,7 @@ function searchStuff() {
   queryURLtwo =
     "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" +
     destinationArray +
-    "+bar&key=AIzaSyCk-KNk6jGlajiWKSm2CwMv5QUq8e7a01Q";
+    "+bar&key=AIzaSyBf7PWp5QlvGwec0U64-7QpxiedRnAGvhc";
   console.log(destinationArray);
 
   $.ajax({
@@ -106,31 +106,36 @@ function searchStuff() {
       console.log(rating);
     }
 
-    for (var i = 0; i < searchResults.length; i++) {
+    if (response.status === "OK") {
+      for (var i = 0; i < searchResults.length; i++) {
 
-      // create row
-      var resultDivRow = $("<button class='row btn-lg btn-danger w-100 text-center result mb-2 mx-1 p-1'>");
-      resultDivRow.attr("rating", searchResults[i].rating);
-      resultDivRow.attr("id", searchResults[i].id);
-      resultDivRow.attr("latitude", searchResults[i].geometry.location.lat);
-      resultDivRow.attr("longitude", searchResults[i].geometry.location.lng);
-      resultDivRow.attr("destination", searchResults[i].formatted_address);
-      resultDivRow.attr("name", searchResults[i].name);
-
-      // create left hand column div for name of bar
-      var resultDiv = $("<div class='col-md-8 text-left'>");
-      var searchItem = $("<h4>");
-      searchItem.text(searchResults[i].name);
-      resultDiv.append(searchItem);
-      resultDivRow.append(resultDiv);
-
-      // create right hand column div for rating of bar
-      var resultDivRating = $("<div class='col-md-4 rating-info text-right'>");
-      resultDivRating.html("&#x2606; " + searchResults[i].rating);
-      resultDivRow.append(resultDivRating);
-
-      // append whole row to DOM
-      $("#results").append(resultDivRow);
+        // create row
+        var resultDivRow = $("<button class='row btn-lg btn-primary w-100 text-center result mb-2 ml-1 p-1'>");
+        resultDivRow.attr("rating", searchResults[i].rating);
+        resultDivRow.attr("id", searchResults[i].id);
+        resultDivRow.attr("latitude", searchResults[i].geometry.location.lat);
+        resultDivRow.attr("longitude", searchResults[i].geometry.location.lng);
+        resultDivRow.attr("destination", searchResults[i].formatted_address);
+        resultDivRow.attr("name", searchResults[i].name);
+  
+        // create left hand column div for name of bar
+        var resultDiv = $("<div class='col-md-8 text-left'>");
+        var searchItem = $("<h4>");
+        searchItem.text(searchResults[i].name);
+        resultDiv.append(searchItem);
+        resultDivRow.append(resultDiv);
+  
+        // create right hand column div for rating of bar
+        var resultDivRating = $("<div class='col-md-4 rating-info text-right'>");
+        resultDivRating.html("&#x2606; " + searchResults[i].rating);
+        resultDivRow.append(resultDivRating);
+        $("#no-results").empty();
+  
+        // append whole row to DOM
+        $("#results").append(resultDivRow);
+      }
+    } else {
+      $("#no-results").html("<button class='row btn-lg btn-danger w-100 text-center result mb-2 ml-1 px-5 p-3'>There are no bars in the town you searched. Please search again.</button>")
     }
   });
 }
@@ -139,7 +144,7 @@ function getStartAddress() {
   queryURLtwo =
     "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" +
     startAddressArray +
-    "&key=AIzaSyCk-KNk6jGlajiWKSm2CwMv5QUq8e7a01Q";
+    "&key=AIzaSyBf7PWp5QlvGwec0U64-7QpxiedRnAGvhc";
 
   $.ajax({
     url: queryURLtwo,
@@ -218,6 +223,9 @@ function getUberTime() {
     })
     .catch(function (err) {
       console.log(err);
+      $("#uberX-time").text("");
+      $("#uberXL-time").text("");
+      $("#uberBlack-time").text("");
     });
 }
 
@@ -259,6 +267,9 @@ function getUberPrice() {
     })
     .catch(function (err) {
       console.log(err);
+      $("#uberX-time").text("There are currently no available uberX in this area.");
+      $("#uberXL-time").text("There are currently no available uberXL in this area.");
+      $("#uberBlack-time").text("There are currently no available uberBlack in this area.");
     });
 };
 
@@ -324,6 +335,7 @@ function googlePhoto() {
 // geocoding api key AIzaSyBtLe1BVWQqCpw0Wv4bW393RH5WZCqmuLI
 
 // google places api key for fosty29@gmail.com   AIzaSyBf7PWp5QlvGwec0U64-7QpxiedRnAGvhc
-// google places api key for danieljfoster87@gmail.com AIzaSyCk-KNk6jGlajiWKSm2CwMv5QUq8e7a01Q
+// google places api key for danieljfoster87@gmail.com AIzaSyCk-KNk6jGlajiWKSm2CwMv5QUq8e7a01Q  over query limit Monday 9pm
 // AIzaSyD4VXFiAwwWf5h8cp27q1wlOhOEu6eOHPI
 // google street view api key AIzaSyAhLZTKkeTNine_zc-t6Mqj_rVwCQnHrKQ
+

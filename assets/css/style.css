@@ -28,9 +28,14 @@ body {
   color: white;
 }
 
+
 #uberX-time,
 #uberX-price {
   color: black;
+}
+
+.card {
+  border: none;
 }
 
 h4 {
@@ -42,7 +47,8 @@ h4 {
 #uberBlack-time,
 #uberBlack-price,
 #google-distance,
-#google-time {
+#google-time,
+#no-results {
 
   color: white;
 }

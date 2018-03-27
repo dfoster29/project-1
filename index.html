@@ -42,15 +42,13 @@
 
     <!-- // row for search input and search button --------------- -->
 
-    <div class="form-stuff text-center">
-      <div class="row" id="search-form">
-        <label for="search-input"></label>
-        <div class="col-md-1 m-2"></div>
-        <input class="col-md-4 btn-lg m-2" placeholder="enter address..." type="text" id="address-input">
-        <input class="col-md-4 btn-lg m-2" placeholder="enter zip code or city, state..." type="text" id="destination-input">
-        <button class="col-md-1 btn-lg btn-danger m-2" id="search-button" type="submit" value="">search</button>
-      </div>
+    <div class="row" id="search-form">
+      <div class="col-md-1 m-2"></div>
+      <input class="col-md-4 btn-lg m-2" placeholder="enter address..." type="text" id="address-input">
+      <input class="col-md-4 btn-lg m-2" placeholder="enter zip code or city, state..." type="text" id="destination-input">
+      <button class="col-md-1 btn-lg btn-danger m-2" id="search-button" type="submit" value="">search</button>
     </div>
+
 
     <!-- // row for 3 columns ------------------------------------- -->
 
@@ -59,9 +57,9 @@
       <!-- // column 1 ---------------------------------------------- -->
 
       <div class="col-md-4">
-        <div class="card hidden" id="bar-card">
+        <div class="card bg-dark hidden" id="bar-card">
           <div class="card-body">
-            <h1 class="card-title text-center" id="bar-name"></h1>
+            <h1 class="card-title text-white text-center" id="bar-name"></h1>
             <img class="card-img-bottom img-fluid" id="bar-photo">
           </div>
         </div>
@@ -73,68 +71,89 @@
 
         <div class="card-column hidden" id="bar-info">
 
-          <!-- // start address row in column #2 ---------------------------- -->
-
-          <div class="card text-white bg-success mb-3">
-            <div class="card-header">start address</div>
-            <div class="card-body">
-              <div id="start-address"></div>
-            </div>
-          </div>
-
-          <!-- // bar address row in column #2 ------------------------------- -->
-
-          <div class="card text-white bg-danger mb-3">
-            <div class="card-header">bar address</div>
-            <div class="card-body">
-              <div id="end-address"></div>
-            </div>
-          </div>
-
-          <!-- // drive info row in column #2 -------------------------------- -->
-
-          <div class="card text-white bg-primary mb-3">
-            <div class="card-header">drive info</div>
-            <div class="card-body">
-              <div id="google-distance"></div>
-              <div id="google-time"></div>
-            </div>
-          </div>
-
-
           <!-- // uber row in column #2 --------------------------------------- -->
+          <div class="col-md-12">
 
-          <div class="row">
+            <div class="row">
 
-            <div class="col-md-4">
-              <div class="card bg-light mb-3">
-                <div class="card-header text-center">uberX</div>
-                <div class="card-body">
-                  <div class="text-center" id="uberX-time"></div>
-                  <div class="text-center" id="uberX-price"></div>
+              <div class="col-md-4 px-0 mx-0 uber-margin">
+                <div class="card bg-light mb-3  ml-0 mr-1">
+                  <div class="card-header text-center p-1 py-2">
+                    uberX
+                  </div>
+                  <div class="card-body">
+                    <div class="text-center" id="uberX-price"></div>
+                    <div class="text-center" id="uberX-time"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 px-0 mx-0 uber-margin">
+                <div class="card text-white bg-secondary mb-3 mx-1">
+                  <div class="card-header text-center p-1 py-2">
+                    uberXL
+                  </div>
+                  <div class="card-body">
+                    <div class="text-center text-white" id="uberXL-price"></div>
+                    <div class="text-center text-white" id="uberXL-time"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 px-0 mx-0 uber-margin">
+                <div class="card text-white bg-dark mb-3  ml-1 mr-0">
+                  <div class="card-header text-center p-1 py-2">
+                    uberBlack
+                  </div>
+                  <div class="card-body">
+                    <div class="text-center text-white" id="uberBlack-price"></div>
+                    <div class="text-center text-white" id="uberBlack-time"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- // drive info row in column #2 -------------------------------- -->
+
+            <div class="row">
+              <div class="col-md-12 px-0 mx-0">
+                <div class="card text-white bg-primary mb-3">
+                  <div class="card-header bg-dark">drive info</div>
+                  <div class="card-body">
+                    <div id="google-distance"></div>
+                    <div id="google-time"></div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-md-4">
-              <div class="card text-white bg-secondary mb-3">
-                <div class="card-header text-center">uberXL</div>
-                <div class="card-body">
-                  <div class="text-center text-white" id="uberXL-time"></div>
-                  <div class="text-center text-white" id="uberXL-price"></div>
+            <!-- // start address row in column #2 ---------------------------- -->
+
+            <div class="row">
+              <div class="col-md-12 px-0 mx-0">
+                <div class="card text-white bg-success mb-3">
+                  <div class="card-header bg-dark">start address</div>
+                  <div class="card-body">
+                    <div id="start-address"></div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-md-4">
-              <div class="card text-white bg-dark mb-3">
-                <div class="card-header text-center">uberBlack</div>
-                <div class="card-body">
-                  <div class="text-center text-white" id="uberBlack-time"></div>
-                  <div class="text-center text-white" id="uberBlack-price"></div>
+            <!-- // bar address row in column #2 ------------------------------- -->
+
+            <div class="row">
+              <div class="col-md-12 px-0 mx-0">
+                <div class="card text-white bg-danger mb-3">
+                  <div class="card-header bg-dark">bar address</div>
+                  <div class="card-body">
+                    <div id="end-address"></div>
+                  </div>
                 </div>
               </div>
             </div>
+
 
           </div>
         </div>
@@ -143,6 +162,8 @@
       <!-- // column 3 ---------------------------------------------------- -->
 
       <div class="col-md-4 hidden show-this">
+        <div class="text-center" id=no-results></div>
+
         <div class="text-center" id="results"></div>
       </div>
 
