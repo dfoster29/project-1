@@ -87,7 +87,7 @@ function searchStuff() {
   queryURLtwo =
     "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" +
     destinationArray +
-    "+bar&key=AIzaSyBf7PWp5QlvGwec0U64-7QpxiedRnAGvhc";
+    "+bar&key=AIzaSyDuX7NCqb4GgnSg7p6A2OYi0l9y_WDRV9A";
   console.log(destinationArray);
 
   $.ajax({
@@ -150,7 +150,7 @@ function getStartAddress() {
   queryURLtwo =
     "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" +
     startAddressArray +
-    "&key=AIzaSyBf7PWp5QlvGwec0U64-7QpxiedRnAGvhc";
+    "&key=AIzaSyDuX7NCqb4GgnSg7p6A2OYi0l9y_WDRV9A";
 
   $.ajax({
     url: queryURLtwo,
@@ -173,7 +173,7 @@ function getStartAddress() {
 
 
 $(document).on("click", ".result", getUberPrice);
-$(document).on("click", ".result", getUberTime);
+// $(document).on("click", ".result", getUberTime);
 $(document).on("click", ".result", doStuff);
 $(document).on("click", ".result", googleDistance);
 $(document).on("click", ".result", printName);
@@ -264,18 +264,39 @@ function getUberPrice() {
       var priceResultsX = res.prices[1].estimate;
       var priceResultsXL = res.prices[2].estimate;
       var priceResultsBlack = res.prices[4].estimate;
+
+      if (res.prices[1].estimate != undefined) {
+        getUberTime();
+        $("#uberX-price").text(priceResultsX);
+      } else(
+        $("#uberX-time").empty() &&
+        $("#uberX-time").text("None available.") &&
+        $("#uberX-price").empty());
+
+      if (res.prices[2].estimate != undefined) {
+        $("#uberXL-price").text(priceResultsXL);
+      } else(
+        $("#uberXL-time").empty() &&
+        $("#uberXL-time").text("None available.") &&
+        $("#uberX-price").empty());
+
+      if (res.prices[4].estimate != undefined) {
+        $("#uberBlack-price").text(priceResultsBlack);
+      } else(
+        $("#uberBlack-time").empty() &&
+        $("#uberBlack-time").text("None available.") &&
+        $("#uberBlack-price").empty());
+
       console.log(priceResultsX);
       console.log(priceResultsXL);
       console.log(priceResultsBlack);
-      $("#uberX-price").text(priceResultsX);
-      $("#uberXL-price").text(priceResultsXL);
-      $("#uberBlack-price").text(priceResultsBlack);
+
     })
     .catch(function (err) {
       console.log(err);
-      $("#uberX-time").text("There are currently no available uberX for this desired origin and destination.");
-      $("#uberXL-time").text("There are currently no available uberXL for this desired origin and destination.");
-      $("#uberBlack-time").text("There are currently no available uberBlack for this desired origin and destination.");
+      $("#uberX-time").text("None available.");
+      $("#uberXL-time").text("None available.");
+      $("#uberBlack-time").text("None available.");
     });
 };
 
@@ -303,8 +324,8 @@ function googleDistance() {
     var distance_text = distance.text;
     var duration = response.rows[0].elements[0].duration.text;
     var miles = distance_text.substring(0, distance_text.length - 3);
-    $("#google-distance").text("distance: " + distance_text);
-    $("#google-time").text("drive time: " + duration);
+    $("#google-distance").text("Distance: " + distance_text);
+    $("#google-time").text("Drive Time: " + duration);
   });
 };
 
@@ -344,3 +365,6 @@ function googlePhoto() {
 // google places api key for danieljfoster87@gmail.com AIzaSyCk-KNk6jGlajiWKSm2CwMv5QUq8e7a01Q  over query limit Monday 9pm
 // AIzaSyD4VXFiAwwWf5h8cp27q1wlOhOEu6eOHPI
 // google street view api key AIzaSyAhLZTKkeTNine_zc-t6Mqj_rVwCQnHrKQ
+
+
+/// api key for presentation  AIzaSyDuX7NCqb4GgnSg7p6A2OYi0l9y_WDRV9A
